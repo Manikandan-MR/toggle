@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGGLE</title>
+    <style>
+        body{
+            background:linear-gradient(90deg,rgb(102, 194, 244),white);
+        }
+        .toggle{
+            width: 900px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 60px 0px 0px 150px;
+        }
+        .title{
+            font-size: 20px;
+            border-radius: 8px;
+            background-color: rgb(14, 97, 141);
+            color: white;
+            font-weight: 600;
+            position: relative;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .title::after{
+            content: '+';
+            position: absolute;
+            right: 20px;
+            cursor: pointer;
+        }
+        .para{
+            font-size: 20px;
+            text-indent: 30px;
+            line-height: 1.5;
+            margin: 10px 0px;
+            height: 0px;
+            overflow: hidden;
+            width: 100%;
+            transition: .5s;
+        }
+        .container.display .title::after{
+            content: '-';
+            transition: .5s;
+        }
+        .container.display .para{
+            height: 100px;
+        }
+
+        @media  all and (max-width:1200px) {
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: fit-content;
+            }
+            .toggle{
+                margin-left:10px;
+                padding: 10px 20px;
+            }
+            .title{
+                transition: .5s;
+                width: 100%;
+                letter-spacing: 2px;
+            }
+            .para{
+                min-width: 300px;
+                height: 0px;
+            }
+            .container{
+                margin-bottom: 30px;
+            }
+            .container.display .para{
+                height: 180px;
+            }
+            .title::after{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle">
+    <div class="container">
+        <div class="title">Projected World GDP </div>
+        <div class="para">Worldwide energy demand is principally from the subsequent 
+            sources namely coal, fossil oil, and natural gas. Oil will continue to be
+            the world‟s fundamental energy source, meetingapproximately one-third of demand
+            till the year 2040...</div>
+    </div>
+    <div class="container">
+        <div class="title">Projected energy growth</div>
+        <div class="para">In International Energy Outlook 2016 (IEO2016) reference, the total
+            transportation energy utilization in India demonstrates considerable growth from 3.3
+            quadrillion BTU in the year 2012 and will be 10.9 quadrillion BTU in the year 2040,
+            with a typical yearly increment...</div>
+    </div>
+    <div class="container">
+        <div class="title">Transport fuel demand</div>
+        <div class="para">The resources like fossil fuels are limited and anticipated to be depleted 
+            within the next 100 years. Nonetheless, few models estimated that it would be 
+            exhausted in less than forty-five years (Sharma & Singh 2009). These fossil fuels are
+            to be accentuated to overcome its depletion...</div>
+    </div>
+    </div>
+</body>
+<script>
+    const tog=document.getElementsByClassName('container');
+    for(var i=0;i<tog.length;i++){
+        tog[i].addEventListener('click',function(){
+        this.classList.toggle('display');
+    })
+}
+</script>
+</html>
